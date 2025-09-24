@@ -3,7 +3,6 @@ import { motion, AnimatePresence } from 'framer-motion';
 import { Edit3, X, Check, Mail, Phone, MapPin, Calendar, Briefcase } from 'lucide-react';
 import type { Employee, Department } from '../types';
 
-// Import departments data
 import departmentsData from '../mock-data/departments.json';
 
 interface ProfileCardProps {
@@ -74,7 +73,7 @@ export const ProfileCard = ({ employee, onUpdate }: ProfileCardProps) => {
               />
               <div className="absolute -bottom-2 -right-2 bg-green-500 w-8 h-8 rounded-full border-4 border-white"></div>
             </div>
-            
+
             <div className="flex-1 text-center md:text-left">
               <h2 className="text-3xl font-bold mb-2">{employee.name}</h2>
               <div className="flex flex-wrap items-center gap-4 text-white/90 mb-4">
@@ -87,7 +86,7 @@ export const ProfileCard = ({ employee, onUpdate }: ProfileCardProps) => {
                   <span>{employee.location}</span>
                 </div>
               </div>
-              
+
               <div className="grid grid-cols-1 md:grid-cols-2 gap-3 text-sm">
                 <div className="flex items-center gap-2 bg-white/10 rounded-lg px-3 py-2">
                   <Mail className="w-4 h-4" />
@@ -110,6 +109,7 @@ export const ProfileCard = ({ employee, onUpdate }: ProfileCardProps) => {
 
             <button
               onClick={() => setIsEditing(true)}
+              aria-label="Edit Profile"
               className="absolute top-4 right-4 p-2 bg-white/20 hover:bg-white/30 rounded-full transition-colors"
             >
               <Edit3 className="w-5 h-5" />
@@ -142,7 +142,7 @@ export const ProfileCard = ({ employee, onUpdate }: ProfileCardProps) => {
             className="space-y-4"
           >
             <h3 className="text-2xl font-bold mb-6">Edit Profile</h3>
-            
+
             <div>
               <label className="block text-sm font-medium mb-2">Name</label>
               <input
@@ -155,13 +155,15 @@ export const ProfileCard = ({ employee, onUpdate }: ProfileCardProps) => {
             </div>
 
             <div>
-              <label className="block text-sm font-medium mb-2">Phone</label>
+              <label htmlFor="phone" className="block text-sm font-medium mb-2">Phone</label>
               <input
+                id="phone"
                 type="text"
                 value={formData.phone}
                 onChange={(e) => setFormData({ ...formData, phone: e.target.value })}
-                className="w-full px-4 py-2 rounded-lg bg-white/20 border border-white/30 text-white placeholder-white/60 focus:outline-none focus:ring-2 focus:ring-white/50"
+                className="w-full px-4 py-2 rounded-lg ..."
               />
+
               {errors.phone && <p className="text-red-200 text-sm mt-1">{errors.phone}</p>}
             </div>
 

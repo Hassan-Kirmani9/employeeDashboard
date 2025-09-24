@@ -1,73 +1,181 @@
-# React + TypeScript + Vite
+# Employee Dashboard - SaaS HR Product
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+A modern, responsive Employee Dashboard built with React, TypeScript, and Tailwind CSS. Features attendance tracking, performance reviews, profile management, and data visualizations.
 
-Currently, two official plugins are available:
+## 🚀 Features
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+- **Employee Profile Management** - View and edit employee information
+- **Attendance History** - Searchable, filterable table with pagination
+- **Performance Reviews** - Visual display of review scores with color-coded ratings
+- **Data Visualizations** - Interactive charts showing attendance patterns and trends
+- **Dark Mode** - Toggle between light and dark themes
+- **Responsive Design** - Works seamlessly on desktop, tablet, and mobile
+- **Loading States** - Smooth loading animations and transitions
+- **Empty State Handling** - Graceful handling of missing or empty data
 
-## React Compiler
+## 📋 Requirements Met
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+✅ **Employee Dashboard Layout**
+- Profile Card with name, role, department, and profile picture
+- Attendance History table with search and filter functionality
+- Performance Review Summary with color-coded ratings
 
-## Expanding the ESLint configuration
+✅ **Profile Edit Form**
+- Update name, phone number, and department
+- Form validation (phone number format, required fields)
+- Success message on update
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
+✅ **Attendance Visualization**
+- Weekly attendance bar chart
+- Hours trend line chart
+- Attendance distribution pie chart
 
-```js
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
+✅ **UI/UX & Responsiveness**
+- Professional design with modern aesthetics
+- Mobile-friendly responsive layout
+- Proper error states and feedback messages
 
-      // Remove tseslint.configs.recommended and replace with this
-      tseslint.configs.recommendedTypeChecked,
-      // Alternatively, use this for stricter rules
-      tseslint.configs.strictTypeChecked,
-      // Optionally, add this for stylistic rules
-      tseslint.configs.stylisticTypeChecked,
+✅ **Edge Cases & Error Handling**
+- Empty data scenarios
+- Form validation errors
+- Loading state simulation
 
-      // Other configs...
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
-```
+✅ **Code Quality**
+- TypeScript implementation
+- Component-based architecture
+- Reusable components
+- Clean, documented code
 
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
+✅ **Bonus Features**
+- Dark mode toggle
+- Unit tests for helper functions and components
+- Advanced animations with Framer Motion
 
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
+## 🛠 Tech Stack
 
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-      // Enable lint rules for React
-      reactX.configs['recommended-typescript'],
-      // Enable lint rules for React DOM
-      reactDom.configs.recommended,
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
-```
+- **Frontend**: React 19.1.1 with TypeScript
+- **Styling**: Tailwind CSS 3.4.17
+- **Charts**: Recharts
+- **Icons**: Lucide React
+- **Animations**: Framer Motion
+- **Build Tool**: Vite 7.1.7
+- **Testing**: Vitest with React Testing Library
+
+## 📦 Installation & Setup
+
+### Prerequisites
+- Node.js (v20.19.0 or higher recommended)
+- npm or yarn package manager
+
+### Steps to Run
+
+1. **Clone or download the project**
+```bash
+git clone <repository-url>
+cd employee-dashboard
+
+Install dependencies
+
+bashnpm install
+
+Start development server
+
+bashnpm run dev
+
+Open in browser
+Navigate to http://localhost:5173
+
+Additional Commands
+bash# Build for production
+npm run build
+
+# Preview production build
+npm run preview
+
+# Run tests
+npm run test
+
+# Run tests with UI
+npm run test:ui
+
+# Run linting
+npm run lint
+📁 Project Structure
+employee-dashboard/
+├── src/
+│   ├── components/          # Reusable UI components
+│   │   ├── AttendanceChartAdvanced.tsx
+│   │   ├── AttendanceTable.tsx
+│   │   ├── PerformanceReviews.tsx
+│   │   ├── ProfileCard.tsx
+│   │   └── StatsCard.tsx
+│   ├── mock-data/           # JSON data files
+│   │   ├── attendance.json
+│   │   ├── attendance.empty.json
+│   │   ├── departments.json
+│   │   ├── employeeProfile.json
+│   │   ├── employeeProfile.invalid.json
+│   │   ├── performanceReviews.json
+│   │   └── uiState.json
+│   ├── types/               # TypeScript type definitions
+│   │   └── index.ts
+│   ├── utils/               # Helper functions
+│   │   ├── helpers.ts
+│   │   └── helpers.test.ts
+│   ├── test/                # Test setup
+│   │   └── setup.ts
+│   ├── App.tsx             # Main application component
+│   ├── main.tsx            # Application entry point
+│   └── index.css           # Global styles
+├── public/                  # Static assets
+├── tailwind.config.js       # Tailwind configuration
+├── vite.config.ts          # Vite configuration
+├── vitest.config.ts        # Vitest configuration
+└── package.json            # Project dependencies
+📊 Data Sources
+All data is sourced from JSON files in the src/mock-data/ directory:
+
+Employee Profile: employeeProfile.json
+Attendance Records: attendance.json
+Performance Reviews: performanceReviews.json
+Departments: departments.json
+UI State: uiState.json
+
+🔧 Configuration
+Testing Different Data States
+To test with empty attendance data:
+typescript// In src/App.tsx, replace:
+import attendanceData from './mock-data/attendance.json';
+// With:
+import attendanceData from './mock-data/attendance.empty.json';
+To test with invalid profile data:
+typescript// In src/App.tsx, replace:
+import employeeData from './mock-data/employeeProfile.json';
+// With:
+import employeeData from './mock-data/employeeProfile.invalid.json';
+🎨 Customization
+Themes
+
+Default theme can be changed in src/App.tsx
+Dark mode colors are configured in Tailwind classes
+Additional themes can be added by extending the color system
+
+Pagination
+
+Items per page can be modified in AttendanceTable.tsx
+Currently set to 10 items per page
+
+Charts
+
+Chart colors and styling can be customized in AttendanceChartAdvanced.tsx
+Additional chart types can be added using Recharts components
+
+🧪 Testing
+The project includes unit tests for:
+
+Utility functions (helpers.ts)
+Component rendering and interactions
+Form validation logic
+
+Run tests with:
+bashnpm run test

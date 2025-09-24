@@ -29,9 +29,10 @@ describe('ProfileCard', () => {
     const onUpdate = vi.fn();
     render(<ProfileCard employee={mockEmployee} onUpdate={onUpdate} />);
     
-    const editButton = screen.getByText('Edit Profile');
+    const editButton = screen.getByRole('button', { name: /edit profile/i });
     fireEvent.click(editButton);
     
+    expect(screen.getByText('Edit Profile')).toBeInTheDocument();
     expect(screen.getByText('Save Changes')).toBeInTheDocument();
   });
 
@@ -39,7 +40,7 @@ describe('ProfileCard', () => {
     const onUpdate = vi.fn();
     render(<ProfileCard employee={mockEmployee} onUpdate={onUpdate} />);
     
-    fireEvent.click(screen.getByText('Edit Profile'));
+    fireEvent.click(screen.getByRole('button', { name: /edit profile/i }));
     
     const phoneInput = screen.getByLabelText('Phone');
     fireEvent.change(phoneInput, { target: { value: 'invalid' } });

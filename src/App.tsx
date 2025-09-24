@@ -7,8 +7,6 @@ import { PerformanceReviews } from './components/PerformanceReviews';
 import { AttendanceChartAdvanced } from './components/AttendanceChartAdvanced';
 import { StatsCard } from './components/StatsCard';
 import type { Employee, Attendance, PerformanceReview } from './types';
-
-// Import mock data
 import employeeData from './mock-data/employeeProfile.json';
 import attendanceData from './mock-data/attendance.json';
 import performanceData from './mock-data/performanceReviews.json';
